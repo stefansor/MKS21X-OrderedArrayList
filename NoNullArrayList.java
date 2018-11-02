@@ -10,11 +10,12 @@ public class NoNullArrayList<T> extends ArrayList<T>{
 
 	}
 	public T set(int index, T element){
+		T a;
 		if(element == null){
 			throw new IllegalArgumentException("null is not a valid arguement");
 		}
 		else{
-			Object a = this.get(index);
+			a = this.get(index);
 			super.set(index, element);
 		}
 		return a;
