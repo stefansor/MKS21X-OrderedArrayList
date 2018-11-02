@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
-public class NoNullArrayList<T> extends ArrayList<T>{\
-	private T value;
+public class NoNullArrayList<T> extends ArrayList<T>{
+	public  T value;
 	public NoNullArrayList(){
 		super();
 	}
@@ -11,18 +11,29 @@ public class NoNullArrayList<T> extends ArrayList<T>{\
 	}
 	public T set(int index, T element){
 		if(element == null){
-			throw new IllegalArgumentException("not a valid arguement");
+			throw new IllegalArgumentException("null is not a valid arguement");
 		}
 		else{
-			this.set(index, element);
+			Object a = this.get(index);
+			super.set(index, element);
 		}
+		return a;
 	}
 	public boolean add(T element){
 		if(element == null){
-			throw new IllegalArgumentException("not a valid arguement");
+			throw new IllegalArgumentException("null is not a valid arguement");
 		}
 		else{
-			this.add(element);
+			super.add(element);
+		}
+		return true;
+	}
+	public void add(int index, T element){
+		if(element == null){
+			throw new IllegalArgumentException("null is not a valid arguement");
+		}
+		else{
+			super.add(index, element);
 		}
 	}
 
